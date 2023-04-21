@@ -2,6 +2,9 @@
   "name": "vsc-pagebreaks",
   "displayName": "vsc-pagebreaks",
   "description": "Navigate code separated by form feed characters, showing one page at a time.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tangentstorm/vsc-pagebreaks.git"},
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.77.0"
@@ -13,12 +16,13 @@
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      {
-        "command": "vsc-pagebreaks.helloWorld",
-        "title": "Hello World"
-      }
-    ]
-  },
+      { "command": "vsc-pagebreaks.nextPage", "title": "Go to Next Page" },
+      { "command": "vsc-pagebreaks.prevPage", "title": "Go Previous Page" },
+      { "command": "vsc-pagebreaks.toggleOnePage", "title": "Toggle One Page View" }],
+    "keybindings": [
+      { "command": "vsc-pagebreaks.nextPage", "key": "ctrl+]", "mac": "cmd+[" },
+      { "command": "vsc-pagebreaks.prevPage", "key": "ctrl+[", "mac": "cmd+]" },
+      { "command": "vsc-pagebreaks.toggleOnePage", "key": "ctrl+0", "mac": "cmd+0" }]},
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
